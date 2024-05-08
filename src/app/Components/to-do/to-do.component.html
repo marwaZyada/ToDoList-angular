@@ -1,0 +1,28 @@
+<div class="header text-center">
+    <h2 class="p-4">{{title}}</h2>
+    <img [src]="imageulr"/>
+    </div>
+    <div class="py-5 w-75 m-auto ">
+    <form class="d-flex justify-content-center align-items-center" (submit)="AddItem(input.value)">
+    <input type="text" placeholder="Input Data" class="form-control w-75" #input/>
+    <input type="submit" value="Add" class="btn btn-primary ms-3"  #addbtn>
+    </form>
+    </div>
+    <div class="mt-5 w-75 m-auto">
+    <table class="table table-striped text-center table-bordered">
+      <thead >
+        <th class="w-75 p-3">Item</th>
+        <th class="p-3">Edit</th>
+        <th class="p-3">Remove</th>
+      </thead>
+      <tbody #table>
+        @for (item of items; track $index) {
+          <tr>
+             <td class="w-50">{{item}}</td>
+               <td><a class="btn btn-primary" (click)="Edit($index)">Edit</a></td>
+               <td><a class="btn btn-primary"(click)="Delete($index)">Delete</a></td>
+           </tr>
+        }
+      </tbody>
+    </table>
+    </div>
